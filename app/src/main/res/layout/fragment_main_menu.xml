@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/filter_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    android:clickable="true"
+    android:elevation="@dimen/bottom_sheet_elevation"
+    android:focusable="true"
+    tools:ignore="Overdraw">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_peek_height"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/bottom_sheet_peek_height" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/guide_peek_height"
+        app:menu="@menu/menu_main" />
+
+    <View
+        android:id="@+id/filters_header_shadow"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:alpha="0"
+        android:background="@drawable/bottom_sheet_header_shadow"
+        android:stateListAnimator="@animator/active_alpha"
+        app:layout_constraintTop_toBottomOf="@id/guide_peek_height" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/guide_peek_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/collapse_arrow"
+        android:layout_width="@dimen/a11y_min_touch_target"
+        android:layout_height="@dimen/a11y_min_touch_target"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="center"
+        android:tint="@color/dark_gray"
+        app:layout_constraintBottom_toTopOf="@id/guide_peek_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_expand_more_white_24dp" />
+
+</android.support.constraint.ConstraintLayout>
